@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+:root { --bg:#0b1020; --card:#12172b; --text:#e6e8f2; --muted:#a0a6c3; --accent:#5b8cff; --danger:#ff6b6b; --border:#1e2542; }
+html, body, #root { height: 100%; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+
+.container { max-width: 800px; margin: 40px auto; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+header { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom: 16px; }
+h1 { margin: 0; font-size: 28px; letter-spacing: .3px; }
+.muted { color: var(--muted); margin: 0; }
+
+.todo-form { display:flex; gap: 8px; margin: 12px 0 20px; }
+.todo-form input[type="text"] { flex:1; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background:#0e1330; color: var(--text); outline: none; }
+.todo-form input::placeholder { color: #778; }
+.todo-form button { padding: 10px 16px; border-radius: 10px; border: 1px solid var(--border); background: var(--accent); color: white; cursor: pointer; font-weight: 600; }
+.todo-form button:disabled { opacity: .6; cursor: not-allowed; }
+
+.state { padding: 12px 14px; background: #0e1330; border:1px solid var(--border); border-radius: 10px; }
+.state.error { color:#ffd2d2; border-color:#522; background:#2a0f17; }
+
+.todo-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.todo-item { display:flex; align-items:center; gap: 12px; padding: 12px 14px; border-radius: 12px; border:1px solid var(--border); background:#0d1230; }
+.todo-item.done .todo-title { text-decoration: line-through; color: #97a0c9; }
+
+.todo-check { position: relative; display:inline-flex; align-items:center; justify-content:center; width: 22px; height: 22px; }
+.todo-check input { position:absolute; width:22px; height:22px; margin:0; opacity:0; cursor:pointer; }
+.todo-check span { display:inline-block; width: 22px; height: 22px; border-radius:6px; border:1px solid var(--border); background:#0a1030; }
+.todo-check input:checked + span { background: #1c2e66; border-color:#3553a6; box-shadow: inset 0 0 0 3px var(--accent); }
+
+.todo-title { flex:1; }
+button.danger { background: transparent; color: var(--danger); border: 1px solid #3a1c22; padding: 8px 12px; border-radius: 10px; cursor: pointer; }
+button.danger:disabled { opacity: .6; cursor: not-allowed; }
+
+.footer { display:flex; align-items:center; justify-content:flex-end; margin-top: 12px; color: var(--muted); }
